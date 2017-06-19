@@ -30,8 +30,50 @@ int BinarySearch(int a[],int key){
 	return -1;
 }
 
+//quick sort for array
+
+void quicksort(int a[],int left,int right){
+
+    if(left < right){
+        int i = left,j = right;
+        int flag = a[left];
+
+        while(i < j){
+            //从后往前找比flag小的树
+        if(i < j && a[j] > flag){
+            j--;
+        }
+        //从前往后找比flag大的数
+        if(i < j){
+            a[i] = a[j];
+        }
+
+        if(i < j && a[i] < flag){
+            i++;
+        }
+
+        if(i < j){
+            a[j] = a[i];
+        }
+
+        }
+
+        a[i] = flag;
+        quicksort(a,left,i-1);
+        quicksort(a,i+1,right);
+     }
+}
+
 int main(){
 	int Sortarray[Size] = {0,1,2,3,4,5,6,7,8,9};
+	int soting[5] = {3,2,1,0,-1};
+	quicksort(soting,0,4);
+
+	for(int i = 0; i < 5;i++){
+        cout << soting[i] << "  " ;
+	}
+
+	cout << endl;
 
 	int flag = BinarySearch(Sortarray,10);
 
