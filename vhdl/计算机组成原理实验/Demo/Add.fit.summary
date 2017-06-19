@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Apr 10 07:27:00 2017
+Quartus II Version : 8.1 Build 163 10/28/2008 SJ Web Edition
+Revision Name : Add
+Top-level Entity Name : Add
+Family : Cyclone III
+Device : EP3C40F780C8
+Timing Models : Final
+Total logic elements : 6 / 39,600 ( < 1 % )
+    Total combinational functions : 6 / 39,600 ( < 1 % )
+    Dedicated logic registers : 0 / 39,600 ( 0 % )
+Total registers : 0
+Total pins : 14 / 536 ( 3 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,161,216 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 252 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Dec 13 10:35:38 2016
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : 11Counter
+Top-level Entity Name : 11Counter
+Family : Cyclone II
+Device : EP2C8T144C8
+Timing Models : Final
+Total logic elements : 14 / 8,256 ( < 1 % )
+    Total combinational functions : 14 / 8,256 ( < 1 % )
+    Dedicated logic registers : 5 / 8,256 ( < 1 % )
+Total registers : 5
+Total pins : 17 / 85 ( 20 % )
+Total virtual pins : 0
+Total memory bits : 0 / 165,888 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 36 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

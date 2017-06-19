@@ -1,0 +1,115 @@
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>unknown</sub_system>
+	<file>unknown</file>
+	<line>0</line>
+	<callstack>
+	0x765ee3eb: USER32 + 0xe3eb (DispatchMessageW + 0x45b)
+	0x765f8b08: USER32 + 0x18b08 (MsgWaitForMultipleObjectsEx + 0x308)
+	0x771908c5: ntdll + 0x708c5 (KiUserCallbackDispatcher + 0x35)
+	0x00c962ac: GCL_AFC + 0x62ac (?OnWndMsg@AFC_NESTED_FRAME@@UAEHIIJPAJ@Z + 0x3c)
+	0x5c18ba61: mfc90 + 0x5ba61
+	0x5c18a655: mfc90 + 0x5a655
+	0x5c18a8e1: mfc90 + 0x5a8e1
+	0x5c1885cc: mfc90 + 0x585cc
+	0x7660d2b2: USER32 + 0x2d2b2 (SetManipulationInputTarget + 0x52)
+	0x765ee889: USER32 + 0xe889 (DispatchMessageW + 0x8f9)
+	0x7661764a: USER32 + 0x3764a (EndTask + 0x80ea)
+	0x765fb8e2: USER32 + 0x1b8e2 (SendMessageA + 0x82)
+	0x00ef636b: GCL_CUI + 0x636b (?relay_mouse_message_to_view@CUI_TOOLTIP@@IAIXHVCPoint@@@Z + 0x4b)
+	0x5c18ba61: mfc90 + 0x5ba61
+	0x5c18a655: mfc90 + 0x5a655
+	0x5c18a8e1: mfc90 + 0x5a8e1
+	0x5c1885cc: mfc90 + 0x585cc
+	0x7660d2b2: USER32 + 0x2d2b2 (SetManipulationInputTarget + 0x52)
+	0x765ee889: USER32 + 0xe889 (DispatchMessageW + 0x8f9)
+	0x7661764a: USER32 + 0x3764a (EndTask + 0x80ea)
+	0x765fb8e2: USER32 + 0x1b8e2 (SendMessageA + 0x82)
+	0x09b365ce: prj_ppl + 0x265ce (prj_ppl_dll_get_template_classes + 0xfdae)
+	0x5c18bfdc: mfc90 + 0x5bfdc
+	0x00c962ac: GCL_AFC + 0x62ac (?OnWndMsg@AFC_NESTED_FRAME@@UAEHIIJPAJ@Z + 0x3c)
+	0x5c18ba61: mfc90 + 0x5ba61
+	0x5c18a655: mfc90 + 0x5a655
+	0x5c18a8e1: mfc90 + 0x5a8e1
+	0x5c1885cc: mfc90 + 0x585cc
+	0x7660d2b2: USER32 + 0x2d2b2 (SetManipulationInputTarget + 0x52)
+	0x765ee889: USER32 + 0xe889 (DispatchMessageW + 0x8f9)
+	0x7661764a: USER32 + 0x3764a (EndTask + 0x80ea)
+	0x765fb8e2: USER32 + 0x1b8e2 (SendMessageA + 0x82)
+	0x00ef636b: GCL_CUI + 0x636b (?relay_mouse_message_to_view@CUI_TOOLTIP@@IAIXHVCPoint@@@Z + 0x4b)
+	0x5c18ba61: mfc90 + 0x5ba61
+	0x5c18a655: mfc90 + 0x5a655
+	0x5c18a8e1: mfc90 + 0x5a8e1
+	0x5c1885cc: mfc90 + 0x585cc
+	0x7660d2b2: USER32 + 0x2d2b2 (SetManipulationInputTarget + 0x52)
+	0x765ee889: USER32 + 0xe889 (DispatchMessageW + 0x8f9)
+	0x7661764a: USER32 + 0x3764a (EndTask + 0x80ea)
+	0x765fb8e2: USER32 + 0x1b8e2 (SendMessageA + 0x82)
+	0x09b365ce: prj_ppl + 0x265ce (prj_ppl_dll_get_template_classes + 0xfdae)
+	0x5c18bfdc: mfc90 + 0x5bfdc
+	0x00c962ac: GCL_AFC + 0x62ac (?OnWndMsg@AFC_NESTED_FRAME@@UAEHIIJPAJ@Z + 0x3c)
+	0x5c18ba61: mfc90 + 0x5ba61
+	0x5c18a655: mfc90 + 0x5a655
+	0x5c18a8e1: mfc90 + 0x5a8e1
+	0x5c1885cc: mfc90 + 0x585cc
+	0x7660d2b2: USER32 + 0x2d2b2 (SetManipulationInputTarget + 0x52)
+	0x765ee889: USER32 + 0xe889 (DispatchMessageW + 0x8f9)
+	0x7661764a: USER32 + 0x3764a (EndTask + 0x80ea)
+	0x765fb8e2: USER32 + 0x1b8e2 (SendMessageA + 0x82)
+	0x00ef636b: GCL_CUI + 0x636b (?relay_mouse_message_to_view@CUI_TOOLTIP@@IAIXHVCPoint@@@Z + 0x4b)
+	0x5c18ba61: mfc90 + 0x5ba61
+	0x5c18a655: mfc90 + 0x5a655
+	0x5c18a8e1: mfc90 + 0x5a8e1
+	0x5c1885cc: mfc90 + 0x585cc
+	0x7660d2b2: USER32 + 0x2d2b2 (SetManipulationInputTarget + 0x52)
+	0x765ee889: USER32 + 0xe889 (DispatchMessageW + 0x8f9)
+	0x7661764a: USER32 + 0x3764a (EndTask + 0x80ea)
+	0x765fb8e2: USER32 + 0x1b8e2 (SendMessageA + 0x82)
+	0x09b365ce: prj_ppl + 0x265ce (prj_ppl_dll_get_template_classes + 0xfdae)
+	0x5c18bfdc: mfc90 + 0x5bfdc
+	0x00c962ac: GCL_AFC + 0x62ac (?OnWndMsg@AFC_NESTED_FRAME@@UAEHIIJPAJ@Z + 0x3c)
+	0x5c18ba61: mfc90 + 0x5ba61
+	0x5c18a655: mfc90 + 0x5a655
+	0x5c18a8e1: mfc90 + 0x5a8e1
+	0x5c1885cc: mfc90 + 0x585cc
+	0x7660d2b2: USER32 + 0x2d2b2 (SetManipulationInputTarget + 0x52)
+	0x765ee889: USER32 + 0xe889 (DispatchMessageW + 0x8f9)
+	0x7661764a: USER32 + 0x3764a (EndTask + 0x80ea)
+	0x765fb8e2: USER32 + 0x1b8e2 (SendMessageA + 0x82)
+	0x00ef636b: GCL_CUI + 0x636b (?relay_mouse_message_to_view@CUI_TOOLTIP@@IAIXHVCPoint@@@Z + 0x4b)
+	0x5c18ba61: mfc90 + 0x5ba61
+	0x5c18a655: mfc90 + 0x5a655
+	0x5c18a8e1: mfc90 + 0x5a8e1
+	0x5c1885cc: mfc90 + 0x585cc
+	0x7660d2b2: USER32 + 0x2d2b2 (SetManipulationInputTarget + 0x52)
+	0x765ee889: USER32 + 0xe889 (DispatchMessageW + 0x8f9)
+	0x7661764a: USER32 + 0x3764a (EndTask + 0x80ea)
+	0x765fb8e2: USER32 + 0x1b8e2 (SendMessageA + 0x82)
+	0x09b365ce: prj_ppl + 0x265ce (prj_ppl_dll_get_template_classes + 0xfdae)
+	0x5c18bfdc: mfc90 + 0x5bfdc
+	0x00c962ac: GCL_AFC + 0x62ac (?OnWndMsg@AFC_NESTED_FRAME@@UAEHIIJPAJ@Z + 0x3c)
+	0x5c18ba61: mfc90 + 0x5ba61
+	0x5c18a655: mfc90 + 0x5a655
+	0x5c18a8e1: mfc90 + 0x5a8e1
+	0x5c1885cc: mfc90 + 0x585cc
+	0x7660d2b2: USER32 + 0x2d2b2 (SetManipulationInputTarget + 0x52)
+	0x765ee889: USER32 + 0xe889 (DispatchMessageW + 0x8f9)
+	0x7661764a: USER32 + 0x3764a (EndTask + 0x80ea)
+	0x765fb8e2: USER32 + 0x1b8e2 (SendMessageA + 0x82)
+	0x00ef636b: GCL_CUI + 0x636b (?relay_mouse_message_to_view@CUI_TOOLTIP@@IAIXHVCPoint@@@Z + 0x4b)
+	0x5c18ba61: mfc90 + 0x5ba61
+	0x5c18a655: mfc90 + 0x5a655
+	0x5c18a8e1: mfc90 + 0x5a8e1
+	0x5c1885cc: mfc90 + 0x585cc
+	0x7660d2b2: USER32 + 0x2d2b2 (SetManipulationInputTarget + 0x52)
+	0x765ee889: USER32 + 0xe889 (DispatchMessageW + 0x8f9)
+	0x7661764a: USER32 + 0x3764a (EndTask + 0x80ea)
+	</callstack>
+	<error>Current editor: STED, RPW</error>
+	<date>Sun May 07 22:06:16 2017</date>
+	<version>Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition</version>
+	<full_error>Stack Overflow
+Current editor: STED, RPW
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition </full_error>
+</internal_error>
+

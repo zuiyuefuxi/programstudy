@@ -1,0 +1,98 @@
+Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+11
+935
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+PlainCounter
+# storage
+db|11Counter.(2).cnf
+db|11Counter.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+PlainCounter.v
+a64a9bd9e5bbeeb48d3e521265d2da
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+PlainCounter:inst
+}
+# macro_sequence
+
+# end
+# entity
+11Counter
+# storage
+db|11Counter.(0).cnf
+db|11Counter.(0).cnf
+# case_insensitive
+# source_file
+11Counter.bdf
+f09e31f82884798758c794ef237ea
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+7448
+# storage
+db|11Counter.(1).cnf
+db|11Counter.(1).cnf
+# case_insensitive
+# source_file
+g:|quartlss2|quartus|libraries|others|maxplus2|7448.bdf
+f5bb13612191e09b6b732b76917e3be
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+7448:inst1
+}
+# macro_sequence
+
+# end
+# complete
+

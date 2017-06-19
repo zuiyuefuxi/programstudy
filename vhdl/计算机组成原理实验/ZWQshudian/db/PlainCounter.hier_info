@@ -1,0 +1,17 @@
+|PlainCounter
+clk => qL[3]~reg0.CLK
+clk => qL[2]~reg0.CLK
+clk => qL[1]~reg0.CLK
+clk => qL[0]~reg0.CLK
+qL[0] <= qL[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qL[1] <= qL[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qL[2] <= qL[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qL[3] <= qL[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qH[0] <= qH[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qH[1] <= qH[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qH[2] <= qH[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qH[3] <= qH[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~0.DB_MAX_OUTPUT_PORT_TYPE
+cout1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+

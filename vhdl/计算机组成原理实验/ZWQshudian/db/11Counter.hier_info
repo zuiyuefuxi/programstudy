@@ -1,0 +1,59 @@
+|11Counter
+a <= 7448:inst1.OA
+qL[0] <= PlainCounter:inst.qL[0]
+qL[1] <= PlainCounter:inst.qL[1]
+qL[2] <= PlainCounter:inst.qL[2]
+qL[3] <= PlainCounter:inst.qL[3]
+clk => PlainCounter:inst.clk
+b <= 7448:inst1.OB
+c <= 7448:inst1.OC
+d <= 7448:inst1.OD
+e <= 7448:inst1.OE
+f <= 7448:inst1.OF
+g <= 7448:inst1.OG
+cout <= PlainCounter:inst.cout
+qH[0] <= PlainCounter:inst.qH[0]
+qH[1] <= PlainCounter:inst.qH[1]
+qH[2] <= PlainCounter:inst.qH[2]
+qH[3] <= PlainCounter:inst.qH[3]
+
+
+|11Counter|7448:inst1
+OA <= 69.DB_MAX_OUTPUT_PORT_TYPE
+B => 27.IN0
+LTN => 27.IN1
+LTN => 25.IN1
+LTN => 29.IN1
+LTN => 13.IN5
+LTN => 38.IN3
+BIN => 37.IN0
+C => 25.IN0
+D => 14.IN0
+A => 29.IN0
+RBIN => 15.IN0
+OB <= 68.DB_MAX_OUTPUT_PORT_TYPE
+OC <= 70.DB_MAX_OUTPUT_PORT_TYPE
+OD <= 67.DB_MAX_OUTPUT_PORT_TYPE
+RBON <= 13.DB_MAX_OUTPUT_PORT_TYPE
+OE <= 71.DB_MAX_OUTPUT_PORT_TYPE
+OF <= 66.DB_MAX_OUTPUT_PORT_TYPE
+OG <= 72.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|11Counter|PlainCounter:inst
+clk => qL[3]~reg0.CLK
+clk => qL[2]~reg0.CLK
+clk => qL[1]~reg0.CLK
+clk => qL[0]~reg0.CLK
+qL[0] <= qL[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qL[1] <= qL[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qL[2] <= qL[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qL[3] <= qL[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qH[0] <= qH[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qH[1] <= qH[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qH[2] <= qH[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qH[3] <= qH[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~0.DB_MAX_OUTPUT_PORT_TYPE
+cout1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+

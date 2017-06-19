@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat May 27 11:02:00 2017
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : shiyan7
+Top-level Entity Name : shiyan7
+Family : Cyclone III
+Device : EP3C40F780C8
+Timing Models : Final
+Total logic elements : 32 / 39,600 ( < 1 % )
+    Total combinational functions : 28 / 39,600 ( < 1 % )
+    Dedicated logic registers : 21 / 39,600 ( < 1 % )
+Total registers : 21
+Total pins : 23 / 536 ( 4 % )
+Total virtual pins : 0
+Total memory bits : 4,096 / 1,161,216 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 252 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

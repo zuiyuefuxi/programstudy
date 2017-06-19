@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sat May 27 13:12:41 2017
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : yunsuan
+Top-level Entity Name : yunsuan
+Family : Cyclone III
+Total logic elements : 207
+    Total combinational functions : 205
+    Dedicated logic registers : 16
+Total registers : 16
+Total pins : 34
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

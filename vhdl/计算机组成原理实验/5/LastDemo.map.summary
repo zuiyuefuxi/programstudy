@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon May 22 09:46:43 2017
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : LastDemo
+Top-level Entity Name : LastDemo
+Family : Cyclone III
+Total logic elements : 100
+    Total combinational functions : 99
+    Dedicated logic registers : 23
+Total registers : 23
+Total pins : 35
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

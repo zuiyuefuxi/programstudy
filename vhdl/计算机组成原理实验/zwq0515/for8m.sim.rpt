@@ -1,0 +1,242 @@
+Simulator report for for8m
+Tue Dec 13 10:39:54 2016
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 64 nodes     ;
+; Simulation Coverage         ;      64.06 % ;
+; Total Number of Transitions ; 2475         ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
++-----------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Functional ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off        ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto       ; Auto          ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      64.06 % ;
+; Total nodes checked                                 ; 64           ;
+; Total output ports checked                          ; 64           ;
+; Total output ports with complete 1/0-value coverage ; 41           ;
+; Total output ports with no 1/0-value coverage       ; 17           ;
+; Total output ports with no 1-value coverage         ; 23           ;
+; Total output ports with no 0-value coverage         ; 17           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                      ;
++-----------------------+-----------------------+------------------+
+; Node Name             ; Output Port Name      ; Output Port Type ;
++-----------------------+-----------------------+------------------+
+; |for8m|QA             ; |for8m|QA             ; pin_out          ;
+; |for8m|CLK            ; |for8m|CLK            ; out              ;
+; |for8m|QB             ; |for8m|QB             ; pin_out          ;
+; |for8m|QC             ; |for8m|QC             ; pin_out          ;
+; |for8m|QD             ; |for8m|QD             ; pin_out          ;
+; |for8m|QE             ; |for8m|QE             ; pin_out          ;
+; |for8m|QF             ; |for8m|QF             ; pin_out          ;
+; |for8m|QG             ; |for8m|QG             ; pin_out          ;
+; |for8m|QH             ; |for8m|QH             ; pin_out          ;
+; |for8m|74198:inst|120 ; |for8m|74198:inst|120 ; regout           ;
+; |for8m|74198:inst|128 ; |for8m|74198:inst|128 ; out0             ;
+; |for8m|74198:inst|136 ; |for8m|74198:inst|136 ; out0             ;
+; |for8m|74198:inst|119 ; |for8m|74198:inst|119 ; regout           ;
+; |for8m|74198:inst|127 ; |for8m|74198:inst|127 ; out0             ;
+; |for8m|74198:inst|135 ; |for8m|74198:inst|135 ; out0             ;
+; |for8m|74198:inst|118 ; |for8m|74198:inst|118 ; regout           ;
+; |for8m|74198:inst|126 ; |for8m|74198:inst|126 ; out0             ;
+; |for8m|74198:inst|134 ; |for8m|74198:inst|134 ; out0             ;
+; |for8m|74198:inst|117 ; |for8m|74198:inst|117 ; regout           ;
+; |for8m|74198:inst|125 ; |for8m|74198:inst|125 ; out0             ;
+; |for8m|74198:inst|133 ; |for8m|74198:inst|133 ; out0             ;
+; |for8m|74198:inst|116 ; |for8m|74198:inst|116 ; regout           ;
+; |for8m|74198:inst|124 ; |for8m|74198:inst|124 ; out0             ;
+; |for8m|74198:inst|132 ; |for8m|74198:inst|132 ; out0             ;
+; |for8m|74198:inst|115 ; |for8m|74198:inst|115 ; regout           ;
+; |for8m|74198:inst|123 ; |for8m|74198:inst|123 ; out0             ;
+; |for8m|74198:inst|131 ; |for8m|74198:inst|131 ; out0             ;
+; |for8m|74198:inst|114 ; |for8m|74198:inst|114 ; regout           ;
+; |for8m|74198:inst|122 ; |for8m|74198:inst|122 ; out0             ;
+; |for8m|74198:inst|130 ; |for8m|74198:inst|130 ; out0             ;
+; |for8m|74198:inst|113 ; |for8m|74198:inst|113 ; regout           ;
+; |for8m|74198:inst|121 ; |for8m|74198:inst|121 ; out0             ;
+; |for8m|74198:inst|129 ; |for8m|74198:inst|129 ; out0             ;
+; |for8m|74198:inst|83  ; |for8m|74198:inst|83  ; out0             ;
+; |for8m|74198:inst|87  ; |for8m|74198:inst|87  ; out0             ;
+; |for8m|74198:inst|91  ; |for8m|74198:inst|91  ; out0             ;
+; |for8m|74198:inst|95  ; |for8m|74198:inst|95  ; out0             ;
+; |for8m|74198:inst|99  ; |for8m|74198:inst|99  ; out0             ;
+; |for8m|74198:inst|103 ; |for8m|74198:inst|103 ; out0             ;
+; |for8m|74198:inst|107 ; |for8m|74198:inst|107 ; out0             ;
+; |for8m|74198:inst|111 ; |for8m|74198:inst|111 ; out0             ;
++-----------------------+-----------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++------------------------------------------------------------------+
+; Missing 1-Value Coverage                                         ;
++-----------------------+-----------------------+------------------+
+; Node Name             ; Output Port Name      ; Output Port Type ;
++-----------------------+-----------------------+------------------+
+; |for8m|A              ; |for8m|A              ; out              ;
+; |for8m|S0             ; |for8m|S0             ; out              ;
+; |for8m|S1             ; |for8m|S1             ; out              ;
+; |for8m|74198:inst|109 ; |for8m|74198:inst|109 ; out0             ;
+; |for8m|74198:inst|110 ; |for8m|74198:inst|110 ; out0             ;
+; |for8m|74198:inst|105 ; |for8m|74198:inst|105 ; out0             ;
+; |for8m|74198:inst|106 ; |for8m|74198:inst|106 ; out0             ;
+; |for8m|74198:inst|101 ; |for8m|74198:inst|101 ; out0             ;
+; |for8m|74198:inst|102 ; |for8m|74198:inst|102 ; out0             ;
+; |for8m|74198:inst|97  ; |for8m|74198:inst|97  ; out0             ;
+; |for8m|74198:inst|98  ; |for8m|74198:inst|98  ; out0             ;
+; |for8m|74198:inst|93  ; |for8m|74198:inst|93  ; out0             ;
+; |for8m|74198:inst|94  ; |for8m|74198:inst|94  ; out0             ;
+; |for8m|74198:inst|89  ; |for8m|74198:inst|89  ; out0             ;
+; |for8m|74198:inst|90  ; |for8m|74198:inst|90  ; out0             ;
+; |for8m|74198:inst|85  ; |for8m|74198:inst|85  ; out0             ;
+; |for8m|74198:inst|86  ; |for8m|74198:inst|86  ; out0             ;
+; |for8m|74198:inst|81  ; |for8m|74198:inst|81  ; out0             ;
+; |for8m|74198:inst|84  ; |for8m|74198:inst|84  ; out0             ;
+; |for8m|74198:inst|88  ; |for8m|74198:inst|88  ; out0             ;
+; |for8m|74198:inst|92  ; |for8m|74198:inst|92  ; out0             ;
+; |for8m|74198:inst|96  ; |for8m|74198:inst|96  ; out0             ;
+; |for8m|74198:inst|108 ; |for8m|74198:inst|108 ; out0             ;
++-----------------------+-----------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++------------------------------------------------------------------+
+; Missing 0-Value Coverage                                         ;
++-----------------------+-----------------------+------------------+
+; Node Name             ; Output Port Name      ; Output Port Type ;
++-----------------------+-----------------------+------------------+
+; |for8m|A              ; |for8m|A              ; out              ;
+; |for8m|S1             ; |for8m|S1             ; out              ;
+; |for8m|74198:inst|109 ; |for8m|74198:inst|109 ; out0             ;
+; |for8m|74198:inst|110 ; |for8m|74198:inst|110 ; out0             ;
+; |for8m|74198:inst|105 ; |for8m|74198:inst|105 ; out0             ;
+; |for8m|74198:inst|106 ; |for8m|74198:inst|106 ; out0             ;
+; |for8m|74198:inst|101 ; |for8m|74198:inst|101 ; out0             ;
+; |for8m|74198:inst|102 ; |for8m|74198:inst|102 ; out0             ;
+; |for8m|74198:inst|97  ; |for8m|74198:inst|97  ; out0             ;
+; |for8m|74198:inst|98  ; |for8m|74198:inst|98  ; out0             ;
+; |for8m|74198:inst|93  ; |for8m|74198:inst|93  ; out0             ;
+; |for8m|74198:inst|94  ; |for8m|74198:inst|94  ; out0             ;
+; |for8m|74198:inst|89  ; |for8m|74198:inst|89  ; out0             ;
+; |for8m|74198:inst|90  ; |for8m|74198:inst|90  ; out0             ;
+; |for8m|74198:inst|85  ; |for8m|74198:inst|85  ; out0             ;
+; |for8m|74198:inst|86  ; |for8m|74198:inst|86  ; out0             ;
+; |for8m|74198:inst|81  ; |for8m|74198:inst|81  ; out0             ;
++-----------------------+-----------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Tue Dec 13 10:39:54 2016
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off for8m -c for8m
+Info: Using vector source file "F:/zwq0515/for8m.vwf"
+Warning: Can't find signal in vector source file for input pin "|for8m|A"
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      64.06 %
+Info: Number of transitions in simulation is 2475
+Info: Quartus II Simulator was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 166 megabytes
+    Info: Processing ended: Tue Dec 13 10:39:54 2016
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

@@ -1,0 +1,25 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_SIGNED.ALL;
+
+
+ENTITY Decode3_8 IS
+  PORT(S : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+       COUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+       );
+  END  Decode3_8;
+  
+ARCHITECTURE one OF Decode3_8 IS
+  BEGIN
+    
+      COUT <= "00000001" WHEN S = "000"ELSE
+              "00000010" WHEN S = "001"ELSE
+              "00000100" WHEN S = "010"ELSE
+              "00001000" WHEN S = "011"ELSE
+              "00010000" WHEN S = "100"ELSE
+              "00100000" WHEN S = "101"ELSE
+              "01000000" WHEN S = "110"ELSE
+              "10000000" WHEN S = "111"ELSE
+              "ZZZZZZZZ";
+   END  one;

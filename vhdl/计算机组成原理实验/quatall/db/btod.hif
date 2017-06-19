@@ -1,0 +1,148 @@
+Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+11
+935
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+btod
+# storage
+db|btod.(0).cnf
+db|btod.(0).cnf
+# case_insensitive
+# source_file
+btod.bdf
+deba132dc898af2ec3d954f23f8b407b
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+74283
+# storage
+db|btod.(1).cnf
+db|btod.(1).cnf
+# case_insensitive
+# source_file
+g:|quartlss2|quartus|libraries|others|maxplus2|74283.tdf
+2211a54645ba55555e4f1cce9b95c8f
+7
+# user_parameter {
+DEVICE_FAMILY
+Cyclone II
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+SUM4
+-1
+3
+SUM3
+-1
+3
+SUM2
+-1
+3
+SUM1
+-1
+3
+COUT
+-1
+3
+B4
+-1
+3
+B3
+-1
+3
+B2
+-1
+3
+B1
+-1
+3
+A4
+-1
+3
+A3
+-1
+3
+A2
+-1
+3
+A1
+-1
+3
+CIN
+-1
+1
+}
+# include_file {
+g:|quartlss2|quartus|libraries|megafunctions|aglobal.inc
+99832fdf63412df51d7531202d74e75
+}
+# hierarchies {
+74283:inst
+}
+# macro_sequence
+
+# end
+# entity
+f74283
+# storage
+db|btod.(2).cnf
+db|btod.(2).cnf
+# case_insensitive
+# source_file
+g:|quartlss2|quartus|libraries|others|maxplus2|f74283.bdf
+b45e4656835020a67cdadbd5db6856b
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+74283:inst|f74283:sub
+}
+# macro_sequence
+
+# end
+# complete
+

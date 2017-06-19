@@ -1,0 +1,19 @@
+|MAX2_4to1
+a[0] => y~3.DATAB
+a[1] => y~2.DATAB
+a[2] => y~1.DATAB
+a[3] => y~0.DATAB
+b[0] => y~3.DATAA
+b[1] => y~2.DATAA
+b[2] => y~1.DATAA
+b[3] => y~0.DATAA
+sel => y~3.OUTPUTSELECT
+sel => y~2.OUTPUTSELECT
+sel => y~1.OUTPUTSELECT
+sel => y~0.OUTPUTSELECT
+y[0] <= y~3.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y~2.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y~1.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y~0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Apr 24 12:29:53 2017
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : multti
+Top-level Entity Name : multti
+Family : Cyclone III
+Total logic elements : 151
+    Total combinational functions : 151
+    Dedicated logic registers : 2
+Total registers : 2
+Total pins : 47
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

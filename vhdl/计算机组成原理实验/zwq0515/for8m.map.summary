@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Dec 11 15:35:26 2016
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : for8m
+Top-level Entity Name : for8m
+Family : Cyclone II
+Total logic elements : 16
+    Total combinational functions : 16
+    Dedicated logic registers : 8
+Total registers : 8
+Total pins : 12
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
