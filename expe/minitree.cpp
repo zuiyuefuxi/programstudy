@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define MAX_N 10
+#define MAX_N 10 //最大顶点数
 
 //实现最小生成树的结构定义
 typedef struct {
@@ -15,7 +15,7 @@ typedef struct {
     int arcw[MAX_N][MAX_N];
 }Graph;
 
-
+//closedge结构定义
 typedef struct {
     double lowcost;
     int vex;
@@ -28,14 +28,14 @@ void crtGraph(Graph &G){
     int w;
 
     ifstream fin("input.txt");
-    //ofstream fout("out.txt");
+
     if(!fin ){
         return ;
     }
 
     fin >> G.n >> G.e;
 
-    //初始化全部为-1
+    //初始化全部为333，表示不连接
     for(i = 0; i < G.n;i++){
         for(j = 0; j < G.n; j++){
             G.arcw[i][j] = 333;
@@ -49,22 +49,6 @@ void crtGraph(Graph &G){
     }
 
     fin.close();
-
-   // fout << G.n << " " << G.e << endl;
-
-/*
-    //检验是否写入正确
-    for(i = 0; i < G.n; i++){
-        for(j = 0; j< G.n; j++){
-            fout << G.arcw[i][j] << "  ";
-        }
-
-        fout << endl;
-    }
-
-    fout.close();
-*/
-
 }
 
 void prim(Graph &G,int k){
@@ -72,7 +56,7 @@ void prim(Graph &G,int k){
     CostTp *closedge = new CostTp[G.n];
     int *saveroad = new int[G.n];
     int si = 0;
-    int maxload = 0;
+    int maxload = 0;//总权重
 
     ofstream fout("output.txt");
     if(!fout)
