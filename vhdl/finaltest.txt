@@ -1,0 +1,338 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_unsigned.ALL;
+USE ieee.std_logic_arith.ALL;
+
+ENTITY cpu IS
+PORT(
+	   M_data_in: IN std_logic_vector(7 DOWNTO 0);     
+       M_data_out: OUT std_logic_vector(7 DOWNTO 0);  
+	   cpupc:out std_logic_vector(11 downto 0); 
+	   cpustatus: out integer RANGE 0 TO 6;  
+	   cpuR0,cpuR1,cpuR2,cpuR3,cpuA:out std_logic_vector(7 DOWNTO 0);
+	   cpuIR: out std_logic_vector(15 downto 0);  
+	   reset : IN std_logic;                       
+	   clock : IN std_logic;  
+       overflow: OUT  std_logic ;                
+	   Write_Read: OUT std_logic;                      
+       M_address: OUT std_logic_vector(11 DOWNTO 0));						
+END;
+
+ARCHITECTURE zwq2015111823_behavior of cpu IS
+	CONSTANT idle  : std_logic_vector(3 DOWNTO 0) :="0000";
+	CONSTANT load  : std_logic_vector(3 DOWNTO 0) :="0001";
+	CONSTANT move  : std_logic_vector(3 DOWNTO 0) :="0010";
+	CONSTANT addx  : std_logic_vector(3 DOWNTO 0) :="0011";
+	CONSTANT subp  : std_logic_vector(3 DOWNTO 0) :="0100";
+	CONSTANT andp  : std_logic_vector(3 DOWNTO 0) :="0101";
+	CONSTANT orp   : std_logic_vector(3 DOWNTO 0) :="0110";
+	CONSTANT xorp  : std_logic_vector(3 DOWNTO 0) :="0111";
+	CONSTANT shrp  : std_logic_vector(3 DOWNTO 0) :="1000";
+	CONSTANT shlp  : std_logic_vector(3 DOWNTO 0) :="1001";
+	CONSTANT swap  : std_logic_vector(3 DOWNTO 0) :="1010";
+	CONSTANT jmp   : std_logic_vector(3 DOWNTO 0) :="1011";
+	CONSTANT jz    : std_logic_vector(3 DOWNTO 0) :="1100";
+	CONSTANT read  : std_logic_vector(3 DOWNTO 0) :="1101";
+	CONSTANT write : std_logic_vector(3 DOWNTO 0) :="1110";
+	CONSTANT stop  : std_logic_vector(3 DOWNTO 0) :="1111";
+        
+    SIGNAL IR:  std_logic_vector(15 DOWNTO 0);         
+    SIGNAL MDR: std_logic_vector(7 DOWNTO 0);          
+    SIGNAL MAR: std_logic_vector(11 DOWNTO 0);         
+    SIGNAL status: integer RANGE 0 TO 6;               
+    shared VARIABLE PC:std_logic_vector(11 DOWNTO 0);         
+    shared VARIABLE R0,R1,R2,R3: std_logic_vector(7 DOWNTO 0);  
+    shared VARIABLE A: std_logic_vector(7 DOWNTO 0);              
+
+    
+BEGIN
+
+ PROCESS(clock,reset)
+	 VARIABLE temp: std_logic_vector(8 DOWNTO 0);   	    
+  BEGIN
+	  IF(reset='0') THEN								
+              IR <= (OTHERS=>'0');
+              PC := (OTHERS=>'0');
+              R0 := (OTHERS=>'0');
+              R1 := (OTHERS=>'0');
+              R2 := (OTHERS=>'0');
+              R3 := (OTHERS=>'0');
+              MDR <= (OTHERS=>'0');
+       ELSIF(clock'event AND clock='1') THEN
+	     overflow <= '0'; 
+         CASE status IS
+           WHEN 0=>                                    
+              IR <= M_data_in & "00000000";			  
+			  PC := PC+1;							  
+           WHEN 1=>                                
+			 CASE IR(15 DOWNTO 12) IS
+				WHEN load =>                           
+                   R0:= "0000" & IR(11 DOWNTO 8);
+                WHEN addx =>                          
+                   CASE IR(11 DOWNTO 10) IS
+                      WHEN "00"=>
+                         temp := (R0(7) & R0(7 DOWNTO 0)) + (A(7) & A(7 DOWNTO 0));
+						 R0:=temp(7 DOWNTO 0);
+						 overflow <= temp(8) XOR temp(7); 
+                      WHEN "01"=>
+                         temp :=(R1(7) & R1(7 DOWNTO 0)) + (A(7) & A(7 DOWNTO 0));
+						 R1:=temp(7 DOWNTO 0);
+						 overflow <= temp(8) XOR temp(7); 
+                      WHEN "10"=>
+                         temp :=(R2(7) & R2(7 DOWNTO 0)) + (A(7) & A(7 DOWNTO 0));
+						 R2:=temp(7 DOWNTO 0);
+						 overflow <= temp(8) XOR temp(7); 
+                      WHEN OTHERS=>
+                         temp :=(R3(7) & R3(7 DOWNTO 0)) + (A(7) & A(7 DOWNTO 0));
+						 R3:=temp(7 DOWNTO 0);
+						 overflow <= temp(8) XOR temp(7); 
+                   END CASE;
+                WHEN subp =>                           
+                   CASE IR(11 DOWNTO 10) IS
+                      WHEN "00"=>
+                         temp :=(R0(7) & R0(7 DOWNTO 0)) + NOT(A(7) & A(7 DOWNTO 0)) + 1;
+						 R0:=temp(7 DOWNTO 0);
+						 overflow <= temp(8) XOR temp(7); 
+                      WHEN "01"=>
+                         temp :=(R1(7) & R1(7 DOWNTO 0)) + NOT(A(7) & A(7 DOWNTO 0)) + 1;
+						 R1:=temp(7 DOWNTO 0);
+						 overflow <= temp(8) XOR temp(7); 
+                      WHEN "10"=>
+                         temp :=(R2(7) & R2(7 DOWNTO 0)) + NOT(A(7) & A(7 DOWNTO 0)) + 1;
+						 R2:=temp(7 DOWNTO 0);
+						 overflow <= temp(8) xor temp(7); 
+                      WHEN OTHERS=>
+                         temp :=(R3(7) & R3(7 DOWNTO 0)) + NOT(A(7) & A(7 DOWNTO 0)) + 1;
+						 R3:=temp(7 DOWNTO 0);
+						 overflow <= temp(8) XOR temp(7); 
+                   END CASE;                 
+                  WHEN move =>
+                    CASE IR(11 DOWNTO 10) IS
+                      WHEN "00"=>
+						 R0:=A;
+					  WHEN "01"=>
+						 R1:=A;
+				      WHEN "10"=>
+						 R2:=A;
+                      WHEN others=>
+                         R3:=A;	
+                    end case;
+                  when andp =>
+					CASE IR(11 DOWNTO 10) IS
+					  when "00"=>
+						 R0:=R0 and A;
+					  when "01"=>
+					     R1:=R1 and A;
+					  when "10"=>
+						 R2:=R2 and A;
+					  when others=>
+						 R3:=R3 and A;
+					end case;
+                  when orp =>
+					CASE IR(11 DOWNTO 10) IS
+					  when "00"=>
+						 R0:=R0 or A;
+					  when "01"=>
+					     R1:=R1 or A;
+					  when "10"=>
+						 R2:=R2 or A;
+					  when others=>
+						 R3:=R3 or A;
+					end case;
+                  when xorp =>
+					CASE IR(11 DOWNTO 10) IS
+					  when "00"=>
+						 R0:=R0 xor A;
+					  when "01"=>
+					     R1:=R1 xor A;
+					  when "10"=>
+						 R2:=R2 xor A;
+					  when others=>
+						 R3:=R3 xor A;
+					end case;
+                  when shlp =>
+					CASE IR(11 DOWNTO 10) IS
+					  when "00"=>
+						 R0:=A(6 downto 0)&'0';
+					  when "01"=>
+					     R1:=A(6 downto 0)&'0';
+					  when "10"=>
+						 R2:=A(6 downto 0)&'0';
+					  when others=>
+						 R3:=A(6 downto 0)&'0';
+					end case;
+				  when shrp =>
+					CASE IR(11 DOWNTO 10) IS
+					  when "00"=>
+						 R0:='0'&A(7 downto 1);
+					  when "01"=>
+					     R1:='0'&A(7 downto 1);
+					  when "10"=>
+						 R2:='0'&A(7 downto 1);
+					  when others=>
+						 R3:='0'&A(7 downto 1);
+					end case;
+				  when swap =>
+					CASE IR(11 DOWNTO 10) IS
+					  when "00"=>
+						 temp(7 downto 0):=R0;
+					  when "01"=>
+					     temp(7 downto 0):=R1;
+					  when "10"=>
+						 temp(7 downto 0):=R2;
+					  when others=>
+						 temp(7 downto 0):=R3;
+					end case;
+					CASE IR(9 DOWNTO 8) IS
+					  when "00"=>
+						 R0:=temp(7 downto 0);
+					  when "01"=>
+						 R1:=temp(7 downto 0);
+					  when "10"=>
+						 R2:=temp(7 downto 0);
+					  when others=>
+						 R3:=temp(7 downto 0);
+					end case;
+				  when others=>null;
+				  end case;
+		when 2=>
+				null;
+		when 3=>                                        
+			case IR(15 DOWNTO 12) is
+			  when swap=>
+				CASE IR(11 DOWNTO 10) IS
+					  when "00"=>
+						 R0:=A;
+					  when "01"=>
+					     R1:=A;
+					  when "10"=>
+						 R2:=A;
+					  when others=>
+						 R3:=A;
+					end case;
+			  when read|jmp|jz=>
+					IR(7 downto 0)<=M_data_in;
+					PC := PC+1;
+			  when write=>
+			  		IR(7 downto 0)<=M_data_in;
+					PC := PC+1;
+					MDR<=R0;
+			  when others=>null;
+			  end case;			
+        when 4=>
+             CASE IR(15 DOWNTO 12) IS
+				when jmp=>
+					PC:=IR(11 downto 0);
+                when jz=>
+					if(R0=x"00")then
+						PC:=IR(11 downto 0);
+					end if;
+				when others=>null;
+			 end case;
+	    when 5=>
+	         null;
+		when 6=>
+				if(IR(15 DOWNTO 12)=read)then
+					R0:=M_data_in;
+				end if;
+        end case;
+      end if;
+ end process;
+
+
+ PROCESS(status,reset, clock)
+  BEGIN
+	IF reset = '0' THEN 
+		status <= 0 ;
+		A := (OTHERS=>'0');
+        MAR <= (OTHERS=>'0');
+    ELSIF clock'EVENT AND clock = '0' THEN
+ 		CASE status IS
+    	  WHEN 0 =>
+    	  	status <= 1;
+            IF (IR(15 DOWNTO 12) /= stop) THEN
+               	 MAR <= PC;
+			END IF;
+			CASE IR(15 DOWNTO 12) IS
+              WHEN shlp|shrp =>       
+                 CASE IR(11 DOWNTO 10) IS				
+                    WHEN "00"=> A:= R0;
+                    WHEN "01"=> A:= R1;
+                    WHEN "10"=> A:= R2;
+                    WHEN OTHERS => A:= R3;
+                  END CASE;
+              WHEN  Move|addx|subp|andp|orp|xorp|Swap|load=>                           
+                  CASE IR(9 DOWNTO 8) IS				
+                    WHEN "00"=> A:=R0;
+                    WHEN "01"=> A:=R1;  
+                    WHEN "10"=> A:=R2;
+                    WHEN OTHERS=> A:=R3;
+                  END CASE;
+              WHEN OTHERS => NULL;
+            END CASE; 
+          when 1=>
+				status <= 2;
+    	  WHEN 2 =>  
+    	    case IR(15 DOWNTO 12) is
+    	      when stop=>		       
+    	    	status <= 2;
+    	      when addx|Move|Subp|andp|Orp|Xorp|Shrp|Shlp|load=>
+				status <= 0;
+    	      when others=>
+    	    	status<= 3;
+    	     end case;
+    	  WHEN 3=>  
+    	    CASE IR(15 DOWNTO 12) IS
+				WHEN Read|Write|Jmp =>
+					MAR<=IR(11 downto 0);
+					status <= 4;
+			    when jz =>
+					if(R0=x"00")then
+					MAR<=IR(11 downto 0);
+					else
+					MAR<=PC;
+					end if;
+					status <= 4;
+				WHEN OTHERS =>
+					status <= 0;
+			END CASE;
+
+    	  WHEN 4 =>
+    	   case IR(15 DOWNTO 12) is
+    	      when read|write=>
+				MAR<=PC;
+    	    	status  <= 5;
+    	      when jz|jmp=>
+    	        status  <= 5;
+    	      when others=>
+				status  <= 0;
+		   end case;
+		  when 5=>
+		   case IR(15 DOWNTO 12) is
+			when jz|jmp=>
+				status <= 0;
+			when others=>
+				status <= 6;
+		   end case;
+    	  WHEN 6 =>	
+    	      status <= 0;
+      END CASE;    	
+	END IF;
+	if( status=4 and IR(15 DOWNTO 12)=write)  then
+		Write_Read<='1';  
+	else
+		Write_Read<='0';  
+	end if;
+  END PROCESS;
+  
+   M_address<=MAR;
+   M_data_out<=MDR;
+   cpuPC<=PC;
+   cpuIR<=IR;
+   cpuR0<=R0;
+   cpuR1<=R1;
+   cpuR2<=R2;
+   cpuR3<=R3;
+   cpuA<=A;
+   cpustatus<=status;
+end zwq2015111823_behavior;
