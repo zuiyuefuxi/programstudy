@@ -164,44 +164,61 @@ int main(){
         return 0;
     int n;
     fin>> n;
-    int *a = new int[n];
-    int *aquicksort = new int[n];
+
+    ofstream fout("output.txt");
+    if(!fout)
+        return 0;
+
+    int *a = new int[n];             //测试二路归并排序
+    int *aquicksort = new int[n];    //测试快速排序
+    int *aheap = new int[n];         //测试堆排序
 
     for(int i = 0; i < n;i++){
         fin>>a[i];
     }
 
-    cout << "数组元素如下所示："<<endl;
+    cout << "input.txt文件里的数组元素如下所示："<<endl;
     for(int i = 0; i< n;i++){
         cout << a[i]<< " ";
     }
     cout << endl;
 
     for(int i = 0;i< n;i++){
-        aquicksort[i] = a[i];
+        aheap[i] = aquicksort[i] = a[i];
     }
 
-    quicksort(a,0,7);
+    quicksort(aquicksort,0,n-1);
     cout << "快速排序后数组元素如下所示："<<endl;
-    for(int i = 0; i< n;i++){
-        cout << a[i]<< " ";
-    }
-    cout << endl;
-*/
-    MergeSort(aquicksort,n);
-    cout << "2路归并排序后aquicksort数组元素如下所示："<<endl;
+    fout <<"快速排序后数组元素如下所示："<<endl;
     for(int i = 0; i< n;i++){
         cout << aquicksort[i]<< " ";
+        fout << aquicksort[i]<< " ";
     }
     cout << endl;
+    fout <<endl;
+
+    MergeSort(a,n);
+    cout << "2路归并排序后aquicksort数组元素如下所示："<<endl;
+    fout << "2路归并排序后aquicksort数组元素如下所示："<<endl;
+    for(int i = 0; i< n;i++){
+        cout << a[i]<< " ";
+        fout << a[i]<< " ";
+    }
+    cout << endl;
+    fout <<endl;
 
     cout << "堆排序结果如下所示： "<< endl;
-    HeapSort(a,n);
+    fout << "堆排序结果如下所示： "<< endl;
+    HeapSort(aheap,n);
     for(int i = 0;i < n;i++){
-        cout << a[i] << " ";
+        cout << aheap[i] << " ";
+        fout << aheap[i] << " ";
     }
     cout << endl;
+    fout <<endl;
 
+    fin.close();
+    fout.close();
     return 0;
 
 }
