@@ -1,6 +1,5 @@
-import  math
-import  turtle
-
+import math
+import turtle
 
 t = turtle.Turtle()
 
@@ -42,15 +41,18 @@ def setcolor(color):
     t.fillcolor(color)
     t.hideturtle()
 
-def setpen(x,y):
+
+def setpen(x, y):
     t.penup()
-    t.goto(x,y)
+    t.goto(x, y)
     t.pendown()
     t.setheading(0)
+
+
 # 从左下角开始
-def rect(x,y,w,h,color):
+def rect(x, y, w, h, color):
     setcolor(color)
-    setpen(x,y)
+    setpen(x, y)
     # 朝上开始画
     t.setheading(90)
 
@@ -63,41 +65,49 @@ def rect(x,y,w,h,color):
     t.end_fill()
 
 
+temps = [16, 17, 22, 30, 21, 27, 24]
 
-temps = [16,17,22,30,21,27,24]
 
-def line_chart(x,y,color,temps,pixel,space):
-    setpen(x,y)
+def line_chart(x, y, color, temps, pixel, space, offset):
+    setpen(x, y)
     setcolor(color)
+    x = x + offset
+    y1 = y + temps[0] * pixel
+    setpen(x, y1)
+    dot(x, y1)
 
-    for i,j in enumerate(temps):
+    for i, j in enumerate(temps[1:]):  # 切片
         x1 = x + (i + 1) * space
         y1 = y + j * pixel
         # t.goto(x1,y1)
-        dot(x1,y1)
+        dot(x1, y1)
 
-def dot(x,y):
+
+def dot(x, y):
     t.pencolor('black')
     # 指定画笔出息
     t.pensize(2)
 
-    t.goto(x,y)
+    t.goto(x, y)
     t.begin_fill()
     # turtle 自带的画圆函数
     t.circle(4)
     t.end_fill()
 
-# line_chart(0,0,'red',temps,10,20)
-def axise_wh(x,y,w,h):
-    setpen(x,y)
-    setcolor('gray')
-    t.goto(x + w,y)
-    setpen(x,y)
-    t.goto(x,y+ h)
-    setpen(x,y)
 
-def bar_chart(x,y,color,temps,w = 500,h = 300,space = 30):
-    axise_wh(x,y,w,h)
+# line_chart(0,0,'red',temps,10,20)
+def axise_wh(x, y, w, h):
+    setpen(x, y)
+    setcolor('gray')
+    t.goto(x + w, y)
+    setpen(x, y)
+    t.goto(x, y + h)
+    setpen(x, y)
+
+
+def bar_chart(x, y, color, temps, w=500, h=300, space=30):
+    axise_wh(x, y, w, h)
+    bg_ruler(x, y, w, h)
     length = len(temps)
     # 求出柱子的宽
     width = (w - (length + 1) * space) / length
@@ -106,19 +116,43 @@ def bar_chart(x,y,color,temps,w = 500,h = 300,space = 30):
     m = max(temps)
     pixel = h * 0.95 / m
 
-    for i,j in enumerate(temps):
+    for i, j in enumerate(temps):
         # i : 0 1 2 3 4 5 6  j : 16 17
         height = j * pixel
         x1 = x + space + (width + space) * i
-        rect(x1,y,width,height,color)
+
+        # 位每个不同的温度放置颜色
+        if j > 30:
+            color = '#FF0000'
+        elif 25 < j < 31:
+            color = '#5B00AE'
+        elif 20 < j < 26:
+            color = '#00EC00'
+        else:
+            color = '#00FFFF'
+
+        rect(x1, y, width, height, color)
+
+    color = 'pink'
+    s = space + width
+    offset = space + width / 2
+    line_chart(x, y, color, temps, pixel, s, offset)
 
 
-bar_chart(-100,0,'blue',temps)
+# 画背景线
+def bg_ruler(x, y, w, h):
+    setpen(x, y)
+    setcolor('grey')
+    h = h / 7
+
+    for i in range(6):
+        y1 = y + h * (i + 1)
+        setpen(x, y1)
+        # 箭头默认向右
+        t.forward(w)
 
 
-
+bar_chart(-100, 0, 'blue', temps)
 
 # 最后一定要写
 turtle.done()
-
-
